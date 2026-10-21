@@ -1,0 +1,24 @@
+# Direnv
+.direnv/
+
+.vscode/
+
+# Go
+server/data/*.db
+server/data/*.db-journal
+server/tmp
+*.test
+*.out
+
+# Node
+node_modules/
+client/dist/
+client/.vite/
+
+# Env
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+*.swp

@@ -71,6 +71,46 @@ func (s *Store) Create(e *model.Entity) error {
 	return nil
 }
 
+func (s *Store) GetByID(id int64) (*model.Entity, error) {
+	var e model.Entity
+	err := s.db.QueryRow(
+		`SELECT id,name,type,status,latitude,longitude,description,created_at,updated_at FROM entities WHERE id=?`,
+		id,
+	).Scan(&e.ID, &e.Name, &e.Type, &e.Status, &e.Latitude, &e.Longitude, &e.Description, &e.CreatedAt, &e.UpdatedAt)
+	if err != nil {
+		return nil, err
+	}
+	return &e, nil
+}
+
+func (s *Store) Update(e *model.Entity) error {
+	e.UpdatedAt = time.Now().UTC()
+	res, err := s.db.Exec(
+		`UPDATE entities SET name=?,type=?,status=?,latitude=?,longitude=?,description=?,updated_at=? WHERE id=?`,
+		e.Name, e.Type, e.Status, e.Latitude, e.Longitude, e.Description, e.UpdatedAt, e.ID,
+	)
+	if err != nil {
+		return err
+	}
+	n, _ := res.RowsAffected()
+	if n == 0 {
+		return sql.ErrNoRows
+	}
+	return nil
+}
+
+func (s *Store) Delete(id int64) error {
+	res, err := s.db.Exec(`DELETE FROM entities WHERE id=?`, id)
+	if err != nil {
+		return err
+	}
+	n, _ := res.RowsAffected()
+	if n == 0 {
+		return sql.ErrNoRows
+	}
+	return nil
+}
+
 func (s *Store) SeedData() error {
 	var count int
 	if err := s.db.QueryRow(`SELECT COUNT(*) FROM entities`).Scan(&count); err != nil {

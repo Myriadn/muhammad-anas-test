@@ -10,7 +10,9 @@ mengerjakan take-home test ini.
 ## Log penggunaan
 
 ### Hari 1 — 2026-10-21
-- (belum ada - akan diisi sambil coding)
+- Scaffold handler Gin untuk CRUD entity (AI generate boilerplate)
+- Rewrite manual: ganti lat/lng ke *float64 biar bisa validasi "field tidak dikirim"
+- Test validasi manual di 4 skenario invalid (nama kosong, type salah, lat/lng out-of-range, id bukan angka)
 
 ### Hari 2 — 2026-10-22
 - (belum ada)

@@ -1,12 +1,12 @@
-package model
+package dto
 
 import "time"
 
-type Entity struct {
+type EntityResponse struct {
 	ID          int64     `json:"id"`
 	Name        string    `json:"name"`
-	Type        string    `json:"type"`   // veehicle, iot, facility
-	Status      string    `json:"status"` // active, inactive, maintenance
+	Type        string    `json:"type"`
+	Status      string    `json:"status"`
 	Latitude    float64   `json:"latitude"`
 	Longitude   float64   `json:"longitude"`
 	Description string    `json:"description"`

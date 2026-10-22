@@ -4,8 +4,8 @@
 .vscode/
 
 # Go
-server/data/*.db
-server/data/*.db-journal
+server/internal/data/*.db
+server/internal/data/*.db-journal
 server/tmp
 *.test
 *.out

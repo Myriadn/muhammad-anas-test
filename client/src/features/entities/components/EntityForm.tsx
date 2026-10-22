@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { type Entity, type EntityInput } from './api'
+import type { Entity, EntityInput } from '../types'
+
 
 // SKEMA VALIDASI FRONTEND
 const schema = z.object({

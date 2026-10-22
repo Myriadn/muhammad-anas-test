@@ -24,14 +24,16 @@ mengerjakan take-home test ini.
 
 ## Keputusan yang saya ambil
 - Stack: Go + Gin + SQLite + React + Leaflet
-- Skema DB entity (struct dan tipe data).
-- Aturan validasi bisnis (minimal 3 karakter, range koordinat).
+- Skema DB entity (struct dan tipe data)
+- Aturan validasi bisnis (minimal 3 karakter, range koordinat)
+- Memutuskan untuk menaruh logika pada arsitektur yang di sesuaikan pada kode
 
 ## Contoh prompt yang dipakai
 1. "Buatkan handler Go Gin untuk PUT /api/entities/:id. Body divalidasi dengan go-playground/validator. Field: name, type, status, lat, lng. Return 400 kalau invalid, 404 kalau id gak ada."
 2. "Browser memblokir request dari localhost:5173 ke localhost:8080. Reason: CORS header 'Access-Control-Allow-Origin' missing. Gimana cara benerinnya di Gin?"
 3. "Ada error TS2322: Type 'Resolver<...>' is not assignable to type 'Resolver<...>' di react-hook-form + zod. Kenapa ini terjadi dan gimana solusinya?"
 
-## Bagian yang gw rewrite manual
+## Bagian yang saya rewrite manual
 - Mengubah hasil generate AI untuk validasi lat/lng dari `float64` menjadi `*float64`
 - Menulis ulang logika form handling agar sinkron dengan tipe data `EntityInput` di backend
+- Refactoring Mengeksekusi pemindahan file, menyambungkan ulang import antar package, dan memastikan `main.go` hanya bertugas sebagai *orchestrator*

@@ -16,12 +16,14 @@ Aplikasi untuk menampilkan, mengelola, dan memvalidasi entity (kendaraan, perang
 3. **Jalankan Backend:**
    ```bash
    cd server
+   cp .env.example .env
    go run .
    ```
     (Server akan berjalan di http://localhost:9002 untuk defaultnya, database SQLite akan otomatis dibuat dan di-seed dengan 5 data dummy).
 4. **Menjalankan Frontend** (buka terminal baru):
     ```bash
     cd client
+    cp .env.example .env
     npm install
     npm run dev
     ```
@@ -49,8 +51,14 @@ Aplikasi untuk menampilkan, mengelola, dan memvalidasi entity (kendaraan, perang
 - [X] Validasi input ganda pada Frontend (Zod) dan Backend (Gin validator)
 - [X] Error handling (menampilkan pesan error API di UI jika validasi backend gagal)
 - [X] FlyTo animation (peta otomatis zoom ke marker yang dipilih)
+- [X] Graceful Shutdown pada server Go (menunggu request selesai sebelum mati)
+- [X] Konfigurasi Environment Variables (.env) pada Frontend dan Backend
 
 ## Fitur yang Belum Selesai
 - Tidak ada sistem autentikasi (login/register) karena fokus pada fungsionalitas CRUD entity sesuai soal
 - Belum ada fitur drag-and-drop marker pada peta untuk mengubah koordinat secara langsung (koordinat diubah via form input)
 - Peta menggunakan layer default OpenStreetMap
+
+## Agentic AI Usage
+
+Proyek ini dikerjakan dengan bantuan AI (Agentic & Chat). Untuk transparansi, workflow, contoh prompt, serta batasan penggunaan AI selama pengerjaan didokumentasikan secara lengkap pada file [AGENTS.md](./AGENT.md)
